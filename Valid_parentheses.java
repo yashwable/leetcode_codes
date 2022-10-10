@@ -11,11 +11,14 @@ class Solution {
     }
 
     public static int indexOf (int x ,char[] arr , char a ){
+        int ans = 0 ;
         for (int i = 0; i < x; i++){
             if (arr[i] == a ){
-                return i;
+                ans = i;
+                break;
             }
         }
+        return ans;
     }
 
     public static char[] add ( int x , char[] arr , char a ){
@@ -39,6 +42,7 @@ class Solution {
     }
 
     public boolean isValid(String s) {
+        boolean answer = false ;
         char[] opening = "([{".toCharArray();
         char[] closing = ")]}".toCharArray();
         char[] symbol = new char[0];
@@ -49,18 +53,18 @@ class Solution {
             if (contains(opening , a )){
                 symbol = add(size, symbol , a );
             }else if(size == 0 ){
-                return false;
+                answer = false;
             } else {
                 if (symbol[size - 1] == opening[indexOf(size , closing , a)]){
                     symbol= remove(symbol , size - 1);
                 } else {
-                    return false;
+                    answer = false;
                 }
             }
         }
         if (symbol.length == 0){
-            return true;
+            answer = true;
         }
-        
+        return answer;
     }
 }
