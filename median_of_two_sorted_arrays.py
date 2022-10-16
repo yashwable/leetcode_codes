@@ -3,15 +3,17 @@ class Solution:
         int1 = 0 
         int2 = 0 
         nums3 = []
+        l1 = len(nums1)
+        l2 = len(nums2)
 
-        while int1 != len(nums1) and int2 != len(nums2) :
+        while int1 != l1 and int2 != l2 :
             if nums1[int1] <= nums2[int2] :
                 nums3.append(nums1[int1])
                 int1 += 1
             else :
                 nums3.append(nums2[int2])
                 int2 += 1
-        if int1 == len(nums1) :
+        if int1 == l1 :
             nums3.extend(nums2[int2:])
         else :
             nums3.extend(nums1[int1:])
